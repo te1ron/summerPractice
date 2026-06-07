@@ -1,15 +1,16 @@
-/*
-    Ознакомительная практика. Вариант 21.
-
-    Программа читает из файла данные о самолетах:
-        марка ЛА   номер рейса   высота ЛА
-
-    Выполняется проверка данных, вывод ошибок, вывод таблицы,
-    индексная сортировка методом пузырька по высотным эшелонам.
-
-    string, vector и enum не используются.
-    Строки хранятся в char-массивах.
-*/
+/******************************************************************************
+* КАФЕДРА No304 1 КУРС ПРОГИНЖ *
+* Летняя Практика *
+*-----------------------------------------------------------------------------*
+* Project Type : macOS Console Application *
+* Project Name : summerPractice *
+* File Name : main_final2.cpp *
+* Language : C/C++ *
+* Programmer : Тарасов Артём *
+* Modified By : *
+* Created : 02/06/2026 *
+* Comment(s) : Работа со структурами и индексной сортировкой *
+******************************************************************************/
 
 #include <iostream>
 #include <fstream>
@@ -19,10 +20,22 @@ using namespace std;
 
 // ---------- Глобальные константы ----------
 
-const char TEST_POSITIVE[] = "test_positive.txt";
-const char TEST_ERRORS[]   = "test_errors.txt";
-const char TEST_DOUBLES[]  = "test_doubles.txt";
-const char TEST_BOUNDS[]   = "test_bounds.txt";
+const char TEST_01[] = "test_01_positive.txt";
+const char TEST_02[] = "test_02_sort.txt";
+const char TEST_03[] = "test_03_height_zero.txt";
+const char TEST_04[] = "test_04_height_eshelon_border.txt";
+const char TEST_05[] = "test_05_height_middle.txt";
+const char TEST_06[] = "test_06_height_upper_border.txt";
+const char TEST_07[] = "test_07_height_too_high.txt";
+const char TEST_08[] = "test_08_wrong_flight_prefix.txt";
+const char TEST_09[] = "test_09_missing_height.txt";
+const char TEST_10[] = "test_10_too_many_flight_digits.txt";
+const char TEST_11[] = "test_11_too_many_fields.txt";
+const char TEST_12[] = "test_12_letters_in_flight.txt";
+const char TEST_13[] = "test_13_double_dot_height.txt";
+const char TEST_14[] = "test_14_full_duplicate.txt";
+const char TEST_15[] = "test_15_same_flight_different_model.txt";
+const char TEST_16[] = "test_16_empty_file.txt";
 
 const int MAX_PLANES = 100;      // максимум корректных записей
 const int MAX_LINE = 201;        // максимум символов в строке файла
@@ -97,10 +110,22 @@ int main()
     cout << "============================================================" << endl;
 
     cout << endl << "Выберите тестовый файл:" << endl;
-    cout << "1 - " << TEST_POSITIVE << endl;
-    cout << "2 - " << TEST_ERRORS   << endl;
-    cout << "3 - " << TEST_DOUBLES  << endl;
-    cout << "4 - " << TEST_BOUNDS   << endl;
+    cout << "1  - " << TEST_01 << endl;
+    cout << "2  - " << TEST_02 << endl;
+    cout << "3  - " << TEST_03 << endl;
+    cout << "4  - " << TEST_04 << endl;
+    cout << "5  - " << TEST_05 << endl;
+    cout << "6  - " << TEST_06 << endl;
+    cout << "7  - " << TEST_07 << endl;
+    cout << "8  - " << TEST_08 << endl;
+    cout << "9  - " << TEST_09 << endl;
+    cout << "10 - " << TEST_10 << endl;
+    cout << "11 - " << TEST_11 << endl;
+    cout << "12 - " << TEST_12 << endl;
+    cout << "13 - " << TEST_13 << endl;
+    cout << "14 - " << TEST_14 << endl;
+    cout << "15 - " << TEST_15 << endl;
+    cout << "16 - " << TEST_16 << endl;
     cout << "Номер теста: ";
 
     int num;                    // номер выбранного теста
@@ -257,11 +282,23 @@ int splitLine(const char line[], char model[], char flight[], char heightText[])
 
 const char* chooseFileName(int num)
 {
-    if (num == 2) return TEST_ERRORS;
-    if (num == 3) return TEST_DOUBLES;
-    if (num == 4) return TEST_BOUNDS;
+    if (num == 2) return TEST_02;
+    if (num == 3) return TEST_03;
+    if (num == 4) return TEST_04;
+    if (num == 5) return TEST_05;
+    if (num == 6) return TEST_06;
+    if (num == 7) return TEST_07;
+    if (num == 8) return TEST_08;
+    if (num == 9) return TEST_09;
+    if (num == 10) return TEST_10;
+    if (num == 11) return TEST_11;
+    if (num == 12) return TEST_12;
+    if (num == 13) return TEST_13;
+    if (num == 14) return TEST_14;
+    if (num == 15) return TEST_15;
+    if (num == 16) return TEST_16;
 
-    return TEST_POSITIVE;
+    return TEST_01;
 }
 
 int readData(const char fn[], Plane p[], int idx[], int &n)
